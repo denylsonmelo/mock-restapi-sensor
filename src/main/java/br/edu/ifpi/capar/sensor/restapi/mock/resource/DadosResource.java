@@ -15,14 +15,18 @@ import javax.ws.rs.core.Response;
 @Path("dados")
 public class DadosResource {
 
+    private final String AC_ALLOW_ORIGIN = "Access-Control-Allow-Origin";
+    private final String AC_ALLOW_METHODS = "Access-Control-Allow-Methods";
+    private final String OPTIONS = "OPTIONS";
+    
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public Response retornarExperimento() {
         Random random = new Random();
         return Response.ok()
                 .entity(new Dado(random.nextDouble(), 0, random.nextDouble()).toJson())
-                .header("Access-Control-Allow-Origin", "*")
-                .header("Access-Control-Allow-Methods", "GET")
-                .allow("OPTIONS").build();
+                .header(AC_ALLOW_ORIGIN, "*")
+                .header(AC_ALLOW_METHODS, "GET")
+                .allow(OPTIONS).build();
     }
 }

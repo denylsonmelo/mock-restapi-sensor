@@ -9,7 +9,7 @@ import java.net.URI;
 
 public class Main {
 
-    public static final String BASE_URI = "http://localhost:8080/sensor-restapi-mock/api/";
+    public static final String BASE_URI = "http://localhost:8080/";
 
     public static HttpServer startServer() {
         final ResourceConfig rc = new ResourceConfig().packages("br.edu.ifpi.capar.sensor.restapi.mock");
